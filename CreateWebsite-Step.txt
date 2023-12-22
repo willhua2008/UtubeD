@@ -26,6 +26,29 @@ cd myExpressApp
 初始化一个新的 Node.js 应用：
 npm init
 按照提示完成 package.json 文件的创建。
+{
+  "name": "utubeweb",
+  "version": "1.0.0",
+  "description": "downloader demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willhua2008/UtubeD.git"
+  },
+  "keywords": [
+    "youtube"
+  ],
+  "author": "HuaJ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willhua2008/UtubeD/issues"
+  },
+  "homepage": "https://github.com/willhua2008/UtubeD#readme"
+}
+
 4) 安装 Express:
 在您的项目中安装 Express：
 npm install express --save
