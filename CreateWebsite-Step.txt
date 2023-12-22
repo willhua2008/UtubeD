@@ -73,7 +73,7 @@ node app.js
 访问 http://localhost:3000，您应该会看到 “Hello World!” 的消息
 http://152.70.252.36:3000/
 
-2. 创建用户
+4. ADW-创建用户
 CREATE USER web_user IDENTIFIED BY Win2024Janu_1234
 
 CREATE TABLE videos (
@@ -94,8 +94,43 @@ CREATE TABLE users (
     updated_at TIMESTAMP
 );
 
-安装和配置oracledbnpm包以连接ADW。
----VScod & Github---
+5.安装和配置oracledbnpm包以连接ADW。
+1) 安装clinet
+sudo dnf install oracle-instantclient-release-el8
+sudo dnf install oracle-instantclient-basic
+2） 设置环境变量-
+vim .bashrc
+export LD_LIBRARY_PATH=/usr/lib/oracle/21/client64/lib:$LD_LIBRARY_PATH
+source ~/.bashrc
+3) 安装 Node.js Oracle 数据库驱动
+cd myExpressApp/
+npm install oracledb
+
+4) 建立连接DB 文件
+vim .bashrc
+export WEB_USER_DB_PASS='Win2024Janu_1234'
+source ~/.bashrc
+=====Code=====
+const oracledb = require('oracledb');
+
+async function initDB() {
+    try {
+        await oracledb.createPool({
+            user: 'WEB_USER',
+            password: process.env.WEB_USER_DB_PASS, // 使用环境变量
+            connectString: '(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-seoul-1.oraclecloud.com))(connect_data=(service_name=g5a584c1e83499a_huatest_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))'
+        });
+        console.log('Connection Pool is Successful');
+    } catch (err) {
+        console.error('Connection Pool Failed: ', err);
+    }
+}
+
+module.exports.initDB = initDB;
+
+=====Code=====
+
+---VScode & Github---
 1. 使用brew安装
 brew update
 brew install git
