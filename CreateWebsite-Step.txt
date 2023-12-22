@@ -56,7 +56,7 @@ npm install express --save
 
 3. 开始您的第一个 Express 应用
 1) 创建一个简单的 Express 应用:
-在项目目录中创建一个名为 app.js 的文件，并添加以下代码：
+在项目目录中创建一个名为 app.js 的文件（放在myExpressApp根目录下面就可以），并添加以下代码：
 const express = require('express');
 const app = express();
 
@@ -71,7 +71,7 @@ app.listen(3000, () => {
 在终端中，运行以下命令来启动您的 Express 应用：
 node app.js
 访问 http://localhost:3000，您应该会看到 “Hello World!” 的消息
-
+http://152.70.252.36:3000/
 
 2. 创建用户
 CREATE USER web_user IDENTIFIED BY Win2024Janu_1234
