@@ -85,7 +85,12 @@ git config --global user.name "您的名字"
 git config --global user.email "您的邮箱"
 5. VS Code 的终端，输入以下命令
 git clone [复制的 URL]
-
+6.**** commit & Push不好用的时候，在Mac terminal里面执行下面的命令。
+cd 路径到您的仓库
+git add .
+git commit -m "您的提交信息"
+git push
+---VScod & Github---
 
 
 后端开发:
