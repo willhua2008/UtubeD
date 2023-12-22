@@ -13,4 +13,12 @@ async function initDB() {
     }
 }
 
-module.exports.initDB = initDB;
+
+async function getConnection() {
+    return await oracledb.getConnection();
+}
+
+module.exports = {
+    initDB,
+    getConnection
+};

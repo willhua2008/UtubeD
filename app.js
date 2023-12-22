@@ -1,5 +1,5 @@
 const express = require('express');
-const { initDB } = require('./database'); // 引用数据库初始化函数
+const { initDB, getConnection } = require('./database'); // 确保同时引入 initDB 和 getConnection
 
 const app = express();
 // 初始化数据库
