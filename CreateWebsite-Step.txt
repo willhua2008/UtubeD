@@ -72,6 +72,21 @@ CREATE TABLE users (
 );
 
 安装和配置oracledbnpm包以连接ADW。
+---VScod & Github---
+1. 使用brew安装
+brew update
+brew install git
+2. Xcode要安装好
+xcode-select --install
+3. 确认git版本
+git --version
+4. 管理git账号
+git config --global user.name "您的名字"
+git config --global user.email "您的邮箱"
+5. VS Code 的终端，输入以下命令
+git clone [复制的 URL]
+
+
 
 后端开发:
 
