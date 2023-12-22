@@ -1,4 +1,23 @@
 /* 开发步骤---做一个简单修改。
+---*********************VScode & Github---
+1. 使用brew安装
+brew update
+brew install git
+2. Xcode要安装好
+xcode-select --install
+3. 确认git版本
+git --version
+4. 管理git账号
+git config --global user.name "您的名字"
+git config --global user.email "您的邮箱"
+5. VS Code 的终端，输入以下命令
+git clone [复制的 URL]
+6.**** commit & Push不好用的时候，在Mac terminal里面执行下面的命令。
+cd 路径到您的仓库
+git add .
+git commit -m "您的提交信息"
+git push
+---*********************VScode & Github---
 环境搭建:
 
 1.在OCI VM上安装Node.js、Express.js和Oracle数据库客户端。 -已完成 
@@ -176,27 +195,28 @@ node app.js
 //Example app listening on port 3000!
 //Connection Pool is Successful
 
+7）测试URL
+http://152.70.252.36:3000/test-db
+
+现在的问题 - Error: NJS-511: connection to listener at host 192.29.30.216 port 1522 was refused. (CONNECTION_ID=8iNl132VyHXWfOpfMuexDg==)
+Cause: ORA-12506
+    at Object.throwErr (/home/opc/myExpressApp/node_modules/oracledb/lib/errors.js:603:10)
+    at NetworkSession.connect2 (/home/opc/myExpressApp/node_modules/oracledb/lib/thin/sqlnet/networkSession.js:238:18)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async NetworkSession.connect1 (/home/opc/myExpressApp/node_modules/oracledb/lib/thin/sqlnet/networkSession.js:314:23)
+    at async NetworkSession.connect (/home/opc/myExpressApp/node_modules/oracledb/lib/thin/sqlnet/networkSession.js:530:5)
+    at async ThinConnectionImpl.connect (/home/opc/myExpressApp/node_modules/oracledb/lib/thin/connection.js:628:5)
+    at async ThinPoolImpl.bgThreadFunc (/home/opc/myExpressApp/node_modules/oracledb/lib/thin/pool.js:420:11) {
+  code: 'NJS-511'
 
 
----VScode & Github---
-1. 使用brew安装
-brew update
-brew install git
-2. Xcode要安装好
-xcode-select --install
-3. 确认git版本
-git --version
-4. 管理git账号
-git config --global user.name "您的名字"
-git config --global user.email "您的邮箱"
-5. VS Code 的终端，输入以下命令
-git clone [复制的 URL]
-6.**** commit & Push不好用的时候，在Mac terminal里面执行下面的命令。
-cd 路径到您的仓库
-git add .
-git commit -m "您的提交信息"
-git push
----VScod & Github---
+
+
+
+
+
+
+
 
 
 后端开发:
