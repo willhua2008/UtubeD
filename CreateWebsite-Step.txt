@@ -1,0 +1,95 @@
+/* 开发步骤---做一个简单修改。
+环境搭建:
+
+1.在OCI VM上安装Node.js、Express.js和Oracle数据库客户端。 -已完成 
+1. 安装 Node.js
+0）sudo yum update
+1） 添加 Node.js 仓库:
+您可以使用 NodeSource 仓库来安装最新版本的 Node.js。以下命令将添加 Node.js 14.x 仓库（您也可以选择其他版本，如 12.x 或 16.x）：
+curl -sL https://rpm.nodesource.com/setup_18.x | sudo bash -
+2） 使用以下命令安装 Node.js：
+sudo yum install nodejs
+3）安装完成后，您可以通过检查 Node.js 和 npm（Node的包管理器）的版本来验证安装
+node -v
+npm -v
+
+2. 安装 Express.js
+在安装了 Node.js 之后，您可以全局安装 Express.js 生成器或在特定项目中局部安装 Express。
+1)全局安装 Express 生成器（可选）:
+如果您希望使用 Express 生成器来快速开始新的 Express 应用，运行
+sudo npm install -g express-generator
+2)创建您的项目:
+创建一个新目录作为您项目的工作空间，并进入这个目录：
+mkdir myExpressApp
+cd myExpressApp
+3)初始化 Node.js 应用:
+初始化一个新的 Node.js 应用：
+npm init
+按照提示完成 package.json 文件的创建。
+4) 安装 Express:
+在您的项目中安装 Express：
+npm install express --save
+这会将 Express 添加到您的项目依赖中。
+
+3. 开始您的第一个 Express 应用
+1) 创建一个简单的 Express 应用:
+在项目目录中创建一个名为 app.js 的文件，并添加以下代码：
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+app.listen(3000, () => {
+  console.log('Example app listening on port 3000!');
+});
+2) 运行您的应用:
+在终端中，运行以下命令来启动您的 Express 应用：
+node app.js
+访问 http://localhost:3000，您应该会看到 “Hello World!” 的消息
+
+
+2. 创建用户
+CREATE USER web_user IDENTIFIED BY Win2024Janu_1234
+
+CREATE TABLE videos (
+    video_id INT PRIMARY KEY,
+    title VARCHAR2(100),
+    youtube_url VARCHAR2(200) NOT NULL,
+    download_status VARCHAR2(20) DEFAULT 'PENDING',
+    downloaded_at TIMESTAMP,
+    stored_path VARCHAR2(200)
+);
+
+CREATE TABLE users (
+    user_id INT PRIMARY KEY,
+    username VARCHAR2(50) NOT NULL,
+    password VARCHAR2(50) NOT NULL,
+    email VARCHAR2(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP
+);
+
+安装和配置oracledbnpm包以连接ADW。
+
+后端开发:
+
+使用Express.js建立基本的服务器、路由和与ADW的连接。
+实现所需的API，进行数据库操作。
+数据库设计:
+
+在ADW中创建表格，并设计合适的模式来满足应用需求。
+前端开发:
+
+使用Vue.js和Bootstrap设计和实现前端界面。
+视频下载和存储逻辑:
+
+实现视频下载逻辑并将下载信息存储在ADW中。
+测试和优化:
+
+进行全面的功能和性能测试。
+部署:
+
+将完整的应用部署在Oracle Linux VM上。
+*/
