@@ -210,13 +210,49 @@ Cause: ORA-12506
   code: 'NJS-511'
 
 
+----安装loca oracleDB client到Mac M1 -- https://developers.ascendcorp.com/how-to-install-oracle-instant-client-on-apple-silicon-m1-24b67f2dc743===
+1. 修改path文件
+sudo vi .zshrc
+##add below command in .zshrc file
+export PATH=/Users/huaj/instantclient_19_16:$PATH
+export ORACLE_HOME=/Users/huaj/instantclient_19_16
+export DYLD_LIBRARY_PATH=/Users/huaj/instantclient_19_16
+export OCI_LIB_DIR=/Users/huaj/instantclient_19_16
+export OCI_INC_DIR=/Users/huaj/instantclient_19_16/sdk/include
+
+source .zshrc
+2. 解压dmg到download文件夹，再把所有文件放在一个目录下面
+huaj@huaj-mac huaj % cd /Volumes/instantclient-sdk-macos.x64-19.16.0.0.0dbru 
+huaj@huaj-mac instantclient-sdk-macos.x64-19.16.0.0.0dbru % ./install_ic.sh 
 
 
 
+3. 自定义环境变量
+1）建立本地.env  
+#Oracle wallet path
+TNS_ADMIN=/Users/huaj/Wallet_HuaTest
+
+#Oracle user pass word
+WEB_USER_DB_PASS='Win2024Janu_1234'
+
+2）安装dotenv:
+在项目目录下运行 npm install dotenv。
+在Node.js中使用dotenv:
+
+在应用程序的主文件（如app.js）顶部添加 require('dotenv').config();。
+现在，你可以通过 p然后通过 process.env.TNS_ADMIN和process.env.WEB_USER_DB_PASS来调用 来访问环境变量。
 
 
-
-
+4. 使用SQL Plus测试连接到ADW
+1） SQLnet.ora 文件修改如下
+WALLET_LOCATION = (SOURCE = (METHOD = file) (METHOD_DATA = (DIRECTORY="/Users/huaj/Wallet_HuaTest")))
+SSL_SERVER_DN_MATCH=yes
+2） 通过SQLPLus连接
+sqlplus WEB_USER@huatest_high
+Win2024Janu_1234
+##Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.22.0.1.0##
 
 
 后端开发:

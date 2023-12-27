@@ -1,3 +1,7 @@
+// 引入环境变量
+require('dotenv').config();
+
+
 const express = require('express');
 const { initDB, getConnection } = require('./database'); // 确保同时引入 initDB 和 getConnection
 
@@ -20,7 +24,7 @@ app.get('/test-db', async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.send('Hello World!' + '测试中文是否好用！');
+    res.send('Hello World!' + '测试中文是否好用！' + 'password: ' + process.env.WEB_USER_DB_PASS + ' @ Wallet Path: ' + process.env.TNS_ADMIN);
     //res.send('测试中文是否好用2！');
 });
 
